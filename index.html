@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্রোমাটোগ্রাফির কার্যপ্রণালী</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .definition-box {
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e53e3e;
+        }
+        
+        .principle-section {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .chromatography-demo {
+            background: white;
+            border: 3px solid #4299e1;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .paper-strip {
+            width: 80px;
+            height: 400px;
+            background: #f8f9fa;
+            border: 2px solid #333;
+            margin: 20px auto;
+            position: relative;
+            border-radius: 10px;
+        }
+        
+        .solvent-front {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(to top, #3182ce 0%, rgba(49, 130, 206, 0.3) 70%, transparent 100%);
+            border-radius: 8px;
+            animation: solventRise 5s infinite alternate ease-in-out;
+        }
+        
+        .spot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .spot1 {
+            background: #e53e3e;
+            bottom: 280px;
+            animation: moveUp1 5s infinite alternate ease-in-out;
+        }
+        
+        .spot2 {
+            background: #38a169;
+            bottom: 200px;
+            animation: moveUp2 5s infinite alternate ease-in-out;
+        }
+        
+        .spot3 {
+            background: #3182ce;
+            bottom: 120px;
+            animation: moveUp3 5s infinite alternate ease-in-out;
+        }
+        
+        .original-spot {
+            background: #2d3748;
+            bottom: 50px;
+        }
+        
+        @keyframes solventRise {
+            0% { height: 20%; }
+            100% { height: 80%; }
+        }
+        
+        @keyframes moveUp1 {
+            0% { bottom: 80px; }
+            100% { bottom: 320px; }
+        }
+        
+        @keyframes moveUp2 {
+            0% { bottom: 80px; }
+            100% { bottom: 240px; }
+        }
+        
+        @keyframes moveUp3 {
+            0% { bottom: 80px; }
+            100% { bottom: 160px; }
+        }
+        
+        .labels {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .label {
+            background: #4a5568;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            margin: 5px;
+        }
+        
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .type-card {
+            background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .type-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .uses-list {
+            background: #edf2f7;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .uses-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .uses-list li {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #4299e1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .note-box {
+            background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 ক্রোমাটোগ্রাফির কার্যপ্রণালী<br>(Made by Siam)</h1>
+        
+        <div class="definition-box">
+            <h2>📖 ক্রোমাটোগ্রাফি কী?</h2>
+            <p><strong>ক্রোমাটোগ্রাফি</strong> হল একটি বিচ্ছেদ পদ্ধতি যার মাধ্যমে মিশ্রণের বিভিন্ন উপাদানকে আলাদা করা হয়। এই পদ্ধতিতে বিভিন্ন পদার্থের দ্রাবক এবং স্থির মাধ্যমের সাথে ভিন্ন ভিন্ন আকর্ষণ ব্যবহার করা হয়।</p>
+        </div>
+        
+        <div class="principle-section">
+            <h2>⚡ মূল নীতি</h2>
+            <p>ক্রোমাটোগ্রাফির মূল নীতি হল <strong>"পার্থক্যমূলক শোষণ"</strong>। বিভিন্ন পদার্থ বিভিন্ন গতিতে চলে কারণ:</p>
+            <ul>
+                <li>🎯 কিছু পদার্থ স্থির মাধ্যমের সাথে বেশি লেগে থাকে</li>
+                <li>🏃‍♂️ কিছু পদার্থ দ্রাবকের সাথে দ্রুত চলে</li>
+                <li>⚖️ এই পার্থক্যের কারণে আলাদা হয়ে যায়</li>
+            </ul>
+        </div>
+        
+        <div class="chromatography-demo">
+            <h3 style="text-align: center; color: #2d3748;">📊 পেপার ক্রোমাটোগ্রাফির অ্যানিমেশন</h3>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="paper-strip">
+                    <div class="solvent-front"></div>
+                    <div class="spot original-spot"></div>
+                    <div class="spot spot1"></div>
+                    <div class="spot spot2"></div>
+                    <div class="spot spot3"></div>
+                </div>
+            </div>
+            <div class="labels">
+                <span class="label">🔴 দ্রুততম উপাদান</span>
+                <span class="label">🟢 মধ্যম উপাদান</span>
+                <span class="label">🔵 ধীরতম উপাদান</span>
+                <span class="label">⚫ মূল মিশ্রণ</span>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-style: italic;">
+                দ্রাবক উপরের দিকে উঠে যাওয়ার সাথে সাথে বিভিন্ন উপাদান আলাদা হয়ে যাচ্ছে
+            </p>
+        </div>
+        
+        <div class="types-grid">
+            <div class="type-card">
+                <h3>📄 পেপার ক্রোমাটোগ্রাফি</h3>
+                <p><strong>স্থির মাধ্যম:</strong> কাগজ</p>
+                <p><strong>চল মাধ্যম:</strong> দ্রাবক</p>
+                <p><strong>ব্যবহার:</strong> রঙের পিগমেন্ট, অ্যামাইনো অ্যাসিড আলাদা করতে</p>
+            </div>
+            
+            <div class="type-card">
+                <h3>🧪 থিন লেয়ার ক্রোমাটোগ্রাফি (TLC)</h3>
+                <p><strong>স্থির মাধ্যম:</strong> সিলিকা জেল</p>
+                <p><strong>চল মাধ্যম:</strong> জৈব দ্রাবক</p>
+                <p><strong>ব্যবহার:</strong> ওষুধ বিশ্লেষণ, জৈব যৌগ পরীক্ষা</p>
+            </div>
+            
+            <div class="type-card">
+                <h3>🏭 কলাম ক্রোমাটোগ্রাফি</h3>
+                <p><strong>স্থির মাধ্যম:</strong> সিলিকা জেল/অ্যালুমিনা</p>
+                <p><strong>চল মাধ্যম:</strong> বিভিন্ন দ্রাবক</p>
+                <p><strong>ব্যবহার:</strong> বড় পরিমাণে পদার্থ বিশুদ্ধকরণ</p>
+            </div>
+            
+            <div class="type-card">
+                <h3>⚡ HPLC (উচ্চ চাপ)</h3>
+                <p><strong>বিশেষত্ব:</strong> উচ্চ চাপ ও নির্ভুলতা</p>
+                <p><strong>সনাক্তকরণ:</strong> UV ডিটেক্টর</p>
+                <p><strong>ব্যবহার:</strong> ফার্মাসিউটিক্যাল, খাদ্য পরীক্ষা</p>
+            </div>
+        </div>
+        
+        <div class="uses-list">
+            <h2>🎯 ক্রোমাটোগ্রাফির ব্যবহার</h2>
+            <ul>
+                <li>🩺 <strong>চিকিৎসাক্ষেত্রে:</strong> রক্তে ওষুধের মাত্রা নির্ণয়</li>
+                <li>🍎 <strong>খাদ্য শিল্পে:</strong> খাদ্যে ক্ষতিকর পদার্থ সনাক্তকরণ</li>
+                <li>🌍 <strong>পরিবেশ বিজ্ঞানে:</strong> পানি ও মাটির দূষণ পরীক্ষা</li>
+                <li>🔬 <strong>গবেষণাগারে:</strong> জৈব যৌগ বিশ্লেষণ ও বিশুদ্ধকরণ</li>
+                <li>🚗 <strong>পেট্রোলিয়াম শিল্পে:</strong> জ্বালানির গুণগত মান পরীক্ষা</li>
+            </ul>
+        </div>
+        
+        <div class="note-box">
+            <strong>💡 মনে রাখবেন:</strong> ক্রোমাটোগ্রাফি একটি শক্তিশালী বিচ্ছেদ কৌশল যা আধুনিক বিজ্ঞানের প্রায় সব ক্ষেত্রেই ব্যবহৃত হয়!
+        </div>
+        
+        <div class="principle-section">
+            <h2>📐 Rf মান কী?</h2>
+            <p><strong>Rf (Retention factor)</strong> = দ্রাবকের সাথে পদার্থের চলার দূরত্ব / দ্রাবকের মোট চলার দূরত্ব</p>
+            <p>প্রতিটি পদার্থের নিজস্ব Rf মান থাকে, যা দিয়ে তাকে সনাক্ত করা যায়।</p>
+        </div>
+    </div>
+</body>
+</html>
